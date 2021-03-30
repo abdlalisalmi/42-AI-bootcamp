@@ -1,8 +1,6 @@
 import sys
 
 
-
-
 def whois(arg):
     if len(arg) < 1:
         return
@@ -18,7 +16,7 @@ def whois(arg):
         print("I'm Even.")
     else:
         print("I'm Odd.")
-    
+
 
 if __name__ == '__main__':
     whois(sys.argv[1:])
