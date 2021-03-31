@@ -8,7 +8,7 @@ def text_analyzer(*text):
     elif len(text) == 1:
         text = list(text)[0]
     elif len(text) == 0:
-        text = input("What is the text to analyse?\n")
+        text = input("What is the text to analyse?\n>> ")
 
     values = {
         'uppers': 0,
@@ -28,6 +28,7 @@ def text_analyzer(*text):
             values['spaces'] += 1
     
     print(f"""
+The text contains {len(text)} characters:
 - {values.get('uppers')} upper letters
 - {values.get('lowers')} lower letters
 - {values.get('marks')} punctuation marks
