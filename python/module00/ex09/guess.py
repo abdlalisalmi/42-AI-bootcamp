@@ -15,10 +15,13 @@ Good luck!
     while True:
         attempts += 1
         print("What's your guess between 1 and 99?")
-        user = int(input(">> "))
-        if user > secret_number:
+        user = input(">> ")
+        if user == "exit":
+            print("Goodbye!")
+            break
+        elif int(user) > secret_number:
             print("Too high!")
-        elif user < secret_number:
+        elif int(user) < secret_number:
             print("Too low!")
         else:
             print(f"Congratulations, you've got it!\nYou won in {attempts} attempts!")
