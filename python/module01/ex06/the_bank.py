@@ -143,6 +143,7 @@ if __name__ == '__main__':
     print("\tsalmi   : ", salmi.value)
 
     print("\n5- Make a transfer with 10 from abdlali --> salmi:")
+    bank.transfer('abdelaali', 'salmi', 30)
 
     print("\n6- Show the amount of the two accounts again:")
     print("\tabdlali : ", abdlali.value)
