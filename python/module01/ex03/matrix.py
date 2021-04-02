@@ -62,6 +62,17 @@ class Matrix:
                 for j in range(self.shape[1]):
                     result[i][j] = self.data[i][j] * arg
             return result
+        elif isinstance(arg, Matrix):
+            if self.shape != arg.shape:
+                raise ValueError("The two matrices is not in the same dimension!")
+            
+            result = self.create_empty_matrix(self.shape)
+            for i in range(arg.shape[0]):
+                for j in range(arg.shape[1]):
+                    for k in range(arg.shape[0]):
+                        # resulted matrix
+                        result[i][j] += self.data[i][k] * arg.data[k][j]
+            return result
 
         else:
             raise TypeError(f"Unsupported operand for *: 'Matrix' and '{type(arg)}'")
@@ -103,29 +114,3 @@ class Matrix:
                 matrix.append([float(0) for j in range(shape[1])])
         return matrix
 
-
-
-m1 = Matrix([
-    [ 5, 1 ,3], 
-    [ 1, 1 ,1], 
-    [ 1, 2 ,1]
-    ])
-m2 = Matrix([
-    [ 5, 1 ,3], 
-    [ 1, 1 ,1],
-    [ 1, 2 ,1]
-    ])
-print("\nm1 => ", repr(m1))
-print("\nm2 => ", repr(m2))
-
-print("\n---------------- Test (m1 * [1, 2, 3]) ----------------")
-print(m1 * [1, 2, 3])
-
-print("\n---------------- Test (m1 + m2) ----------------")
-print(m1 + m2)
-
-print("\n---------------- Test (m1 + 2) ----------------")
-print(m1 * 2)
-
-print("\n---------------- Test (m1 / 2) ----------------")
-print(m1 / 2)
