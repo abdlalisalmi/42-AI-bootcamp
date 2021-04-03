@@ -1,28 +1,33 @@
-from time import sleep
+import time
 import sys
 
 
-def ft_progress(listy, file=sys.stdout):
-    size=30
-    count = len(listy)
-    def show(j):
-        x = int(size*j/count)
-        file.write("%s[%s%s] %i/%i %s\r" % ("ETA: 8.67s [ 23%] ", "="*x, " "*(size-x), j, count, " | elapsed time 2.33s"))
-        file.flush()        
-    show(0)
+def ft_progress(listy):
+    size=25
+    total = len(listy)
+
+    start_time = time.time()
+
+    est = (0.00003 * total) + (0.01 * total)
+
+    def show_progress(actual):
+        x = int(size * actual / total)
+        sys.stdout.write(f"ETA: {est:.2f}s [ {int((actual/total) * 100)}%][{'='*x}>{' ' * (size-x)}] {actual}/{total} | elapsed time {time.time() - start_time:.2f}s\r")
+        sys.stdout.flush()        
+
     for i, item in enumerate(listy):
         yield item
-        show(i+1)
-    file.write("\n")
-    file.flush()
+        show_progress(i+1)
+    sys.stdout.write("\n...")
+    sys.stdout.flush()
 
 
 
 if __name__ == '__main__':
-    listy = range(1000)
+    listy = range(3000)
     ret = 0
     for elem in ft_progress(listy):
         ret += (elem + 3) % 5
-        sleep(0.01)
-    # print()
-    # print(ret)
+        time.sleep(0.01)
+    print()
+    print(ret)
