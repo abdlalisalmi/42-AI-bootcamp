@@ -4,6 +4,11 @@ setup(
     name='ai42',
     version='1.0.0',
     packages=['ai42',],
-    license='Creative Commons Attribution-Noncommercial-Share Alike license',
-    long_description=open('README.txt').read(),
+    long_description=open('README.rst').read(),
+    description='A Simple Python package',
+    url='https://github.com/abdlalisalmi',
+    author='Abdelaali Es Salmi',
+    author_email='abdlalisalmi@gmail.com',
+    license='BSD 2-clause',
+    install_requires=[],
 )
