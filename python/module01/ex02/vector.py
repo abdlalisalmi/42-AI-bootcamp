@@ -7,7 +7,7 @@ class Vector:
         elif isinstance(arg, list):
             self.values = arg
         elif isinstance(arg, tuple):
-            self.values = self.values = [float(i) for i in range(arg[0], arg[1])]
+            self.values = [float(i) for i in range(arg[0], arg[1])]
         
         self.size = len(self.values)
 
@@ -65,6 +65,3 @@ class Vector:
     def __repr__(self):
         rep = f'Vector(Values: {self.values}, Size: {self.size})'
         return rep
-
-
-
