@@ -13,7 +13,7 @@ def ft_progress(listy):
     def show_progress(actual):
         x = int(size * actual / total)
         sys.stdout.write(f"ETA: {est:.2f}s [ {int((actual/total) * 100)}%][{'='*x}>{' ' * (size-x)}] {actual}/{total} | elapsed time {time.time() - start_time:.2f}s\r")
-        sys.stdout.flush()        
+        sys.stdout.flush()
 
     for i, item in enumerate(listy):
         yield item
@@ -24,7 +24,7 @@ def ft_progress(listy):
 
 
 if __name__ == '__main__':
-    listy = range(3000)
+    listy = range(1000)
     ret = 0
     for elem in ft_progress(listy):
         ret += (elem + 3) % 5

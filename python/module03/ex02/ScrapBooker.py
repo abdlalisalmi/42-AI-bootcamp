@@ -48,7 +48,9 @@ class ScrapBooker:
 
     @staticmethod
     def mosaic(array, dimensions):
-        pass
+        result = []
+        return np.array(np.tile(array, dimensions))
+        
 
 
 
@@ -60,10 +62,10 @@ if __name__ == '__main__':
     sb = ScrapBooker()
 
     """Test Crop"""
-    # imp = ip.ImageProcessor()
-    # arr = imp.load("../resources/42AI.png")
-    # imp.display(arr)
+    imp = ip.ImageProcessor()
+    arr = imp.load("../resources/42AI.png")
 
+    # imp.display(arr)
     # arr = sb.crop(arr, (100, 100))
     # imp.display(arr)
 
@@ -98,3 +100,10 @@ if __name__ == '__main__':
 
     # print(sb.thin(array, 3, 0))
     # print(sb.thin(array2, 4, 1))
+    """Test mosaic"""
+    # test = np.arange(3)
+    # print('-----------------------')
+    # print(test)
+    # print('-----------------------')
+    # print(sb.mosaic(test, (2, 2)))
+    # print('-----------------------')

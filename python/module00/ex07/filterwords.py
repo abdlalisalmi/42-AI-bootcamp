@@ -18,3 +18,4 @@ if __name__ == '__main__':
         print("ERROR")
     else:
         filter_words(args[0], args[1])
+

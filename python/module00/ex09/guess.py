@@ -11,7 +11,6 @@ Good luck!
 """)
     secret_number = randint(1, 99)
     attempts = 0
-    print(secret_number)
     while True:
         attempts += 1
         print("What's your guess between 1 and 99?")

@@ -12,5 +12,5 @@
     * pip3 search | grep "tesseract"
 ------------------------------------------------------------------------------------------------------------------
 5- Freeze the packages and their current versions in a requirements.txt file you have to turn-in.
-    * requirements.txt
+    * pip freeze > requirements.txt
 ------------------------------------------------------------------------------------------------------------------
