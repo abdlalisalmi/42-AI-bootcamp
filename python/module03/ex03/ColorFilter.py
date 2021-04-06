@@ -10,32 +10,45 @@ class ColorFilter:
 
     @staticmethod
     def invert(array):
-        return 255 - array[:, :, :3]
-        # result = []
-        # for arr in array:
-        #     a = []
-        #     for vector in arr:
-        #         v = []
-        #         for index in vector:
-        #             v.append(255 - index if index < 255 else 255)
-        #         a.append(v)
-        #     result.append(a)
-        # return np.array(result)
+        # remove the alpha from the image array
+        array = array[:, :, :3]
+
+        # get all index < 255
+        index = array[:,:,2] < 255
+
+        # to make an index inverted we use this formula (255 - array[index])
+        array[index] = 255 - array[index]
+        return array
 
 
     @staticmethod
     def to_blue(array):
-        pass
+        # get all index < 255
+        index = array[:,:,2] < 255
 
+        # change the index 2 (rgb: r=0, g=1, b=2) to 255
+        array[index, 2] = 255
+        return array
+        
 
     @staticmethod
     def to_green(array):
-        pass
+        # get all index < 255
+        index = array[:,:,2] < 255
+
+        # change the index 1 (rgb: r=0, g=1, b=2) to 255
+        array[index, 1] = 180
+        return array
 
 
     @staticmethod
     def to_red(array):
-        pass
+        # get all index < 255
+        index = array[:,:,2] < 255
+
+        # change the index 0 (rgb: r=0, g=1, b=2) to 255
+        array[index, 0] = 200
+        return array
 
 
     @staticmethod
@@ -49,5 +62,8 @@ if __name__ == '__main__':
     # image.display(array)
 
     cf = ColorFilter()
-    image.display(cf.invert(array))
-    cf.invert(array)
+    # image.display(cf.invert(array))
+    # image.display(cf.to_blue(array))
+    # image.display(cf.to_green(array))
+    image.display(cf.to_red(array))
+    
