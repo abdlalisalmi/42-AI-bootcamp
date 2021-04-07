@@ -44,15 +44,20 @@ class ColorFilter:
     @staticmethod
     def to_red(array):
         # get all index < 255
-        index = array[:,:,2] < 255
+        index = array[:,:,2] <= 255
 
         # change the index 0 (rgb: r=0, g=1, b=2) to 255
-        array[index, 0] = 200
+        array[index, 0] = 255
         return array
 
 
     @staticmethod
     def to_celluloid(array):
+        pass
+
+
+    @staticmethod
+    def to_grayscale(array, filter):
         pass
 
 
@@ -62,8 +67,8 @@ if __name__ == '__main__':
     # image.display(array)
 
     cf = ColorFilter()
-    # image.display(cf.invert(array))
+    image.display(cf.invert(array))
     # image.display(cf.to_blue(array))
     # image.display(cf.to_green(array))
-    image.display(cf.to_red(array))
+    # image.display(cf.to_red(array))
     
