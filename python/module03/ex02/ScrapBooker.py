@@ -43,12 +43,14 @@ class ScrapBooker:
 
     @staticmethod
     def juxtapose(array, n, axis):
-        pass
+        if axis:
+            return np.array(np.tile(array, (1, n)))
+        else:
+            return np.array(np.tile(array, (n, 1)))
 
 
     @staticmethod
     def mosaic(array, dimensions):
-        result = []
         return np.array(np.tile(array, dimensions))
         
 
@@ -63,7 +65,7 @@ if __name__ == '__main__':
 
     """Test Crop"""
     imp = ip.ImageProcessor()
-    arr = imp.load("../resources/42AI.png")
+    arr = imp.load(os.path.dirname(os.path.abspath(__file__))[:-4] + 'resources/42AI.png')
 
     # imp.display(arr)
     # arr = sb.crop(arr, (100, 100))
@@ -100,10 +102,19 @@ if __name__ == '__main__':
 
     # print(sb.thin(array, 3, 0))
     # print(sb.thin(array2, 4, 1))
+
+    """Test juxtapose"""
+    # test = np.arange(3)
+    # print('-----------------------')
+    # print(test)
+    # print('-----------------------')
+    # print(sb.juxtapose(test, 3, 0))
+    # print('-----------------------')
+    
     """Test mosaic"""
     # test = np.arange(3)
     # print('-----------------------')
     # print(test)
     # print('-----------------------')
-    # print(sb.mosaic(test, (2, 2)))
+    # print(sb.mosaic(test, (5, 5)))
     # print('-----------------------')
